@@ -7,8 +7,8 @@ const Navbar = () => (
       <a href="#" className="nav-logo">Shubham.</a>
       <div className="nav-links">
         <a href="#experience">Experience</a>
+        <a href="#arsenal">Arsenal</a>
         <a href="#vision">Vision</a>
-        <a href="#projects">Projects</a>
       </div>
     </div>
   </nav>
@@ -32,6 +32,22 @@ const Hero = () => (
   </section>
 );
 
+// Resume Download Banner
+const ResumeBanner = () => (
+  <div className="container">
+    <div className="resume-banner glass">
+      <div>
+        <h3>Looking for the full technical breakdown?</h3>
+        <p style={{color: 'var(--text-secondary)'}}>Download my complete resume for a detailed look at my professional history.</p>
+      </div>
+      <a href="#" className="btn" onClick={(e) => { e.preventDefault(); alert('Please update this link with your actual PDF resume URL!'); }}>
+        <i className="ph ph-download-simple" style={{fontSize: '1.2rem'}}></i>
+        Download Resume
+      </a>
+    </div>
+  </div>
+);
+
 // Experience Timeline
 const Experience = () => {
   const roles = [
@@ -45,7 +61,7 @@ const Experience = () => {
       company: 'Amdocs',
       role: 'Software Developer',
       period: 'Previous',
-      description: 'Built highly scalable telecommunications software. Winner of the internal Amdocs Hackathon.'
+      description: 'Built highly scalable telecommunications software and optimized existing systems for performance.'
     },
     {
       company: 'Cognizant',
@@ -56,11 +72,11 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="container">
+    <section id="experience" className="container" style={{paddingTop: '2rem'}}>
       <div className="section-title">01 / Professional Trajectory</div>
       <div className="timeline">
         {roles.map((role, index) => (
-          <div key={index} className="timeline-item">
+          <div key={index} className="timeline-item glass">
             <div className="timeline-meta">{role.period}</div>
             <div className="timeline-content">
               <h3>{role.role}</h3>
@@ -74,19 +90,72 @@ const Experience = () => {
   );
 };
 
-// Education & Certifications
-const Education = () => {
+// Technical Arsenal
+const TechnicalArsenal = () => {
   return (
-    <section id="credentials" className="container">
-      <div className="section-title">02 / Credentials & Certifications</div>
+    <section id="arsenal" className="container">
+      <div className="section-title">02 / Technical Arsenal</div>
       <div className="grid-2">
-        <div className="card">
+        <div className="card glass">
+          <div className="skills-category">
+            <h4>Backend & Architecture</h4>
+            <div className="tag-list">
+              <span className="tag">Java</span>
+              <span className="tag">Spring Boot</span>
+              <span className="tag">Node.js</span>
+              <span className="tag">Microservices</span>
+            </div>
+          </div>
+          <div className="skills-category">
+            <h4>Frontend</h4>
+            <div className="tag-list">
+              <span className="tag">React</span>
+              <span className="tag">JavaScript (ES6+)</span>
+              <span className="tag">HTML5 / CSS3</span>
+              <span className="tag">TypeScript</span>
+            </div>
+          </div>
+          <div className="skills-category">
+            <h4>Data & Infrastructure</h4>
+            <div className="tag-list">
+              <span className="tag">Kafka</span>
+              <span className="tag">SQL</span>
+              <span className="tag">Azure</span>
+              <span className="tag">Git</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="card glass" style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+          <i className="ph ph-cpu card-icon" style={{fontSize: '3rem'}}></i>
+          <h3>Engineering Philosophy</h3>
+          <p>I believe in building systems that are not just functionally correct, but resilient, scalable, and maintainable. 6 years in the industry has taught me that the best code is the code you don't have to rewrite.</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Career Highlights & Certs
+const Highlights = () => {
+  return (
+    <section id="highlights" className="container">
+      <div className="section-title">03 / Highlights & Credentials</div>
+      
+      <div className="highlight-card glass" style={{marginBottom: '2rem'}}>
+        <i className="ph ph-trophy highlight-icon"></i>
+        <h3>Hackathon Winner</h3>
+        <p style={{color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto'}}>Secured 1st place at the Amdocs internal hackathon by designing and implementing an innovative technical solution under severe time constraints.</p>
+      </div>
+
+      <div className="grid-2">
+        <div className="card glass">
           <i className="ph ph-graduation-cap card-icon"></i>
           <h3>Academic Foundation</h3>
           <p>Bachelor of Engineering (B.E.)</p>
           <p style={{color: 'var(--text-secondary)', marginTop: '0.5rem'}}>RGPV University</p>
         </div>
-        <div className="card">
+        <div className="card glass">
           <i className="ph ph-certificate card-icon"></i>
           <h3>Certifications</h3>
           <div className="tag-list">
@@ -104,51 +173,18 @@ const Education = () => {
 const Vision = () => {
   return (
     <section id="vision" className="container">
-      <div className="section-title">03 / The Vision & Pursuits</div>
+      <div className="section-title">04 / The Vision & Pursuits</div>
       <div className="grid-2">
-        <div className="card">
+        <div className="card glass">
           <i className="ph ph-globe-hemisphere-west card-icon"></i>
           <h3>Global Perspectives</h3>
           <p>Deeply invested in understanding the world's macro-mechanics. I maintain a vast knowledge base in history and geopolitics to better understand the trajectory of human progress.</p>
         </div>
-        <div className="card">
+        <div className="card glass">
           <i className="ph ph-strategy card-icon"></i>
           <h3>Strategic Pursuits</h3>
           <p>Avid reader and strategic thinker. When not architecting software, I actively engage in competitive sports including cricket, chess, carrom board, and badminton.</p>
         </div>
-      </div>
-    </section>
-  );
-};
-
-// Projects
-const Projects = () => {
-  const projects = [
-    {
-      title: 'Real-time Order Processing',
-      description: 'A microservices-based system built with Java, Kafka, and React that handles real-time order processing.',
-      tech: ['Java', 'Kafka', 'React']
-    },
-    {
-      title: 'AI Image Generator',
-      description: 'An AI tool that generates images from text descriptions using advanced machine learning APIs.',
-      tech: ['Next.js', 'OpenAI', 'Tailwind']
-    }
-  ];
-
-  return (
-    <section id="projects" className="container">
-      <div className="section-title">04 / Selected Projects</div>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-desc">{project.description}</p>
-            <div className="tag-list">
-              {project.tech.map((tech, i) => <span key={i} className="tag">{tech}</span>)}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );
@@ -179,10 +215,11 @@ const App = () => {
     <div>
       <Navbar />
       <Hero />
+      <ResumeBanner />
       <Experience />
-      <Education />
+      <TechnicalArsenal />
+      <Highlights />
       <Vision />
-      <Projects />
       <Footer />
     </div>
   );
