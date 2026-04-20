@@ -19,8 +19,7 @@ const Hero = () => (
     <div className="hero-content animate-up">
       <span className="hero-subtitle">Welcome to my universe</span>
       <h1 className="hero-title">
-        Hi, I'm <span>Your Name</span>.<br />
-        I build things for the web.
+        Hi, I'm <span>Shubham Srivastava</span>.<br />
       </h1>
       <p className="hero-desc">
         I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.
@@ -49,7 +48,7 @@ const About = () => {
       <div className="about-grid">
         <div className="about-text">
           <p>
-            Hello! My name is Shubham and I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS taught me a lot about HTML & CSS!
+            Hello! My name is Shubham and I enjoy creating things that live on the internet.
           </p>
           <p>
             Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences.
