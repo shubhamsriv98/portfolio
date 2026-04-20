@@ -1,118 +1,71 @@
 const { useState, useEffect } = React;
 
-// Components
+// Navbar
 const Navbar = () => (
   <nav>
     <div className="container nav-content">
-      <a href="#" className="nav-logo">Portfolio.</a>
+      <a href="#" className="nav-logo">Shubham.</a>
       <div className="nav-links">
-        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#vision">Vision</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 );
 
+// Hero
 const Hero = () => (
   <section className="hero container">
     <div className="hero-content animate-up">
-      <span className="hero-subtitle">Welcome to my universe</span>
+      <span className="hero-subtitle">System Architecture & Engineering</span>
       <h1 className="hero-title">
-        Hi, I'm <span>Shubham Srivastava</span>.<br />
+        Shubham Srivastava.
       </h1>
       <p className="hero-desc">
-        I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.
+        Software Engineer with 6+ years of experience architecting resilient systems. Passionate about geopolitics, history, and building technology that pushes boundaries.
       </p>
-      <div className="hero-actions">
-        <a href="#projects" className="btn btn-primary">
-          Check out my work
-          <i className="ph ph-arrow-right"></i>
-        </a>
-        <a href="#contact" className="btn btn-outline">
-          Contact Me
-        </a>
-      </div>
+      <a href="#experience" className="btn">
+        Explore Trajectory
+      </a>
     </div>
   </section>
 );
 
-const About = () => {
-  const skills = ['JavaScript (ES6+)', 'React', 'Node.js', 'HTML/CSS', 'TypeScript', 'Java', 'SQL', 'Git'];
-
-  return (
-    <section id="about" className="container">
-      <h2 className="section-title">
-        <span style={{ color: 'var(--accent-color)' }}>01.</span> About Me
-      </h2>
-      <div className="about-grid">
-        <div className="about-text">
-          <p>
-            Hello! My name is Shubham and I enjoy creating things that live on the internet.
-          </p>
-          <p>
-            Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences.
-          </p>
-          <p style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>Here are a few technologies I've been working with recently:</p>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-tag">{skill}</div>
-            ))}
-          </div>
-        </div>
-        <div className="about-image glass" style={{ aspectRatio: '1', borderRadius: 'var(--border-radius)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {/* Placeholder for an actual profile image */}
-          <i className="ph ph-user" style={{ fontSize: '5rem', color: 'var(--text-secondary)' }}></i>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Projects = () => {
-  const projects = [
+// Experience Timeline
+const Experience = () => {
+  const roles = [
     {
-      title: 'Real-time Order Processing',
-      description: 'A microservices-based system built with Java, Kafka, and React that handles real-time order processing and notifications for e-commerce platforms.',
-      tech: ['Java', 'Kafka', 'React', 'Spring Boot'],
-      github: '#',
-      live: '#'
+      company: 'NatWest Group',
+      role: 'Software Engineer',
+      period: 'Present',
+      description: 'Currently architecting and developing robust financial technology solutions and infrastructure.'
     },
     {
-      title: 'Spotify Profile App',
-      description: 'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track.',
-      tech: ['React', 'Styled Components', 'Spotify API'],
-      github: '#',
-      live: '#'
+      company: 'Amdocs',
+      role: 'Software Developer',
+      period: 'Previous',
+      description: 'Built highly scalable telecommunications software. Winner of the internal Amdocs Hackathon.'
     },
     {
-      title: 'AI Image Generator',
-      description: 'An AI tool that generates images from text descriptions. Built with Next.js, Tailwind CSS, and the OpenAI API.',
-      tech: ['Next.js', 'OpenAI', 'Tailwind'],
-      github: '#',
-      live: '#'
+      company: 'Cognizant',
+      role: 'Software Engineer',
+      period: 'Previous',
+      description: 'Developed enterprise-grade applications and collaborated across global teams to deliver business-critical systems.'
     }
   ];
 
   return (
-    <section id="projects" className="container">
-      <h2 className="section-title">
-        <span style={{ color: 'var(--accent-color)' }}>02.</span> Some Things I've Built
-      </h2>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div key={index} className="project-card glass">
-            <div className="project-header">
-              <i className="ph ph-folder folder-icon"></i>
-              <div className="project-links">
-                <a href={project.github} target="_blank" aria-label="GitHub Link"><i className="ph ph-github-logo" style={{ fontSize: '1.5rem' }}></i></a>
-                <a href={project.live} target="_blank" aria-label="External Link"><i className="ph ph-arrow-square-out" style={{ fontSize: '1.5rem' }}></i></a>
-              </div>
-            </div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-desc">{project.description}</p>
-            <div className="project-tech">
-              {project.tech.map((tech, i) => <span key={i}>{tech}</span>)}
+    <section id="experience" className="container">
+      <div className="section-title">01 / Professional Trajectory</div>
+      <div className="timeline">
+        {roles.map((role, index) => (
+          <div key={index} className="timeline-item">
+            <div className="timeline-meta">{role.period}</div>
+            <div className="timeline-content">
+              <h3>{role.role}</h3>
+              <div className="company">{role.company}</div>
+              <p>{role.description}</p>
             </div>
           </div>
         ))}
@@ -121,40 +74,115 @@ const Projects = () => {
   );
 };
 
-const Contact = () => (
-  <section id="contact" className="container contact">
-    <h2 className="section-title">
-      <span style={{ color: 'var(--accent-color)' }}>03.</span> What's Next?
-    </h2>
-    <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Get In Touch</h1>
-    <p className="contact-desc">
-      Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-    </p>
-    <a href="mailto:hello@example.com" className="btn btn-primary">Say Hello</a>
-  </section>
-);
-
-const Footer = () => (
-  <footer>
-    <div className="container">
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1rem' }}>
-        <a href="#"><i className="ph ph-github-logo" style={{ fontSize: '1.5rem' }}></i></a>
-        <a href="#"><i className="ph ph-linkedin-logo" style={{ fontSize: '1.5rem' }}></i></a>
-        <a href="#"><i className="ph ph-twitter-logo" style={{ fontSize: '1.5rem' }}></i></a>
+// Education & Certifications
+const Education = () => {
+  return (
+    <section id="credentials" className="container">
+      <div className="section-title">02 / Credentials & Certifications</div>
+      <div className="grid-2">
+        <div className="card">
+          <i className="ph ph-graduation-cap card-icon"></i>
+          <h3>Academic Foundation</h3>
+          <p>Bachelor of Engineering (B.E.)</p>
+          <p style={{color: 'var(--text-secondary)', marginTop: '0.5rem'}}>RGPV University</p>
+        </div>
+        <div className="card">
+          <i className="ph ph-certificate card-icon"></i>
+          <h3>Certifications</h3>
+          <div className="tag-list">
+            <span className="tag">Microsoft AZ-900</span>
+            <span className="tag">NPTEL Java</span>
+            <span className="tag">NPTEL C</span>
+          </div>
+        </div>
       </div>
-      <p>Built with React & Vanilla CSS</p>
+    </section>
+  );
+};
+
+// Vision / Interests
+const Vision = () => {
+  return (
+    <section id="vision" className="container">
+      <div className="section-title">03 / The Vision & Pursuits</div>
+      <div className="grid-2">
+        <div className="card">
+          <i className="ph ph-globe-hemisphere-west card-icon"></i>
+          <h3>Global Perspectives</h3>
+          <p>Deeply invested in understanding the world's macro-mechanics. I maintain a vast knowledge base in history and geopolitics to better understand the trajectory of human progress.</p>
+        </div>
+        <div className="card">
+          <i className="ph ph-strategy card-icon"></i>
+          <h3>Strategic Pursuits</h3>
+          <p>Avid reader and strategic thinker. When not architecting software, I actively engage in competitive sports including cricket, chess, carrom board, and badminton.</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Projects
+const Projects = () => {
+  const projects = [
+    {
+      title: 'Real-time Order Processing',
+      description: 'A microservices-based system built with Java, Kafka, and React that handles real-time order processing.',
+      tech: ['Java', 'Kafka', 'React']
+    },
+    {
+      title: 'AI Image Generator',
+      description: 'An AI tool that generates images from text descriptions using advanced machine learning APIs.',
+      tech: ['Next.js', 'OpenAI', 'Tailwind']
+    }
+  ];
+
+  return (
+    <section id="projects" className="container">
+      <div className="section-title">04 / Selected Projects</div>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div key={index} className="project-card">
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-desc">{project.description}</p>
+            <div className="tag-list">
+              {project.tech.map((tech, i) => <span key={i} className="tag">{tech}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Footer
+const Footer = () => (
+  <footer className="container" id="contact" style={{ paddingBottom: '4rem' }}>
+    <div className="section-title" style={{ justifyContent: 'center' }}>05 / Initiate Contact</div>
+    <div className="social-links" style={{ marginTop: '3rem', gap: '3rem' }}>
+      <a href="https://www.linkedin.com/in/shubhamsriv98" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+        <i className="ph ph-linkedin-logo" style={{ fontSize: '2.5rem' }}></i>
+      </a>
+      <a href="https://topmate.io/shubham_srivastava98/" target="_blank" aria-label="Topmate" title="Book a call on Topmate">
+        <i className="ph ph-calendar-plus" style={{ fontSize: '2.5rem' }}></i>
+      </a>
+      <a href="mailto:shubhambyte98@gmail.com" aria-label="Email" title="Email Me">
+        <i className="ph ph-envelope-simple" style={{ fontSize: '2.5rem' }}></i>
+      </a>
     </div>
+    <p style={{ marginTop: '3rem' }}>Architected by Shubham Srivastava.</p>
   </footer>
 );
 
+// App
 const App = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      <About />
+      <Experience />
+      <Education />
+      <Vision />
       <Projects />
-      <Contact />
       <Footer />
     </div>
   );
