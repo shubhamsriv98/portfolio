@@ -85,6 +85,40 @@ a:hover {
   border-radius: 16px;
 }
 
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+}
+
+.about-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent-purple));
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.profile-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.about-text h2 {
+  font-family: var(--font-mono);
+}
+
 /* Layout Utilities */
 .container {
   max-width: 1000px;
@@ -430,6 +464,18 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .profile-image {
+    height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
 

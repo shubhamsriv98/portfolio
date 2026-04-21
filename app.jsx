@@ -32,6 +32,30 @@ const Hero = () => (
   </section>
 );
 
+// About Section with Profile Image
+const About = () => (
+  <section id="about" className="container">
+    <div className="section-title">00 / About</div>
+    <div className="about-grid">
+      <div className="about-image-wrapper">
+        <img src="image.jpeg" alt="Shubham Srivastava" className="profile-image" />
+      </div>
+      <div className="about-text">
+        <h2 style={{fontSize: '2rem', marginBottom: '1.5rem', letterSpacing: '-0.03em'}}>The Person Behind The Code</h2>
+        <p style={{color: 'var(--text-secondary)', marginBottom: '1rem', fontSize: '1.1rem'}}>
+          I'm Shubham Srivastava — a Software Engineer with over 6 years of experience building scalable, resilient systems across fintech and telecom industries.
+        </p>
+        <p style={{color: 'var(--text-secondary)', marginBottom: '1rem', fontSize: '1.1rem'}}>
+          Currently at <strong style={{color: 'var(--text-primary)'}}>NatWest Group</strong>, previously at <strong style={{color: 'var(--text-primary)'}}>Amdocs</strong> and <strong style={{color: 'var(--text-primary)'}}>Cognizant</strong>.
+        </p>
+        <p style={{color: 'var(--text-secondary)', fontSize: '1.1rem'}}>
+          Beyond code, I'm deeply fascinated by geopolitics and history. I believe understanding the world's macro-mechanics makes you a better engineer and a better thinker.
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 // Resume Download Banner
 const ResumeBanner = () => (
   <div className="container">
@@ -215,6 +239,7 @@ const App = () => {
     <div>
       <Navbar />
       <Hero />
+      <About />
       <ResumeBanner />
       <Experience />
       <TechnicalArsenal />
